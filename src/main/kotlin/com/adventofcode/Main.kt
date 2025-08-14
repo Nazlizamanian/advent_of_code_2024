@@ -14,18 +14,28 @@ fun main() {
         println("\nDay 1 input (${lines.size} lines):")
         val listA = lines.map { it.split("   ")[0].toInt() }.sorted()
         val listB = lines.map { it.split("   ")[1].toInt() }.sorted()
-        println(listA)
-        println(listB)
+       
         var sum = 0
         for (i in 0..listA.size - 1) {
             sum += abs(listA[i] - listB[i])
         }
-        println(sum)
+        println("Part 1 solution = ${sum} \n")
+       
+        // Part 2: Calculate similarity score
+        var similarityScore = 0
+        for (itemA in listA) {
+            val countInB = listB.count { it == itemA }
+            val score = itemA * countInB
+            similarityScore += score
+            //println("Item $itemA appears $countInB times in list B, score: $score")
+        }
+        println("Part 2 solution = $similarityScore")
         
     } catch (e: Exception) {
         println("Error reading file: ${e.message}")
     }
-}/*
+}
+/*
 1. read input file - check 
 2. parse input into a list into a list A and list B - check 
 3. sort list A and sort list B - check 
@@ -34,3 +44,11 @@ fun main() {
 5. print the sum
 
  */
+
+ /* Part 2 
+ 1. read input file - check 
+ 2. Parse into list a and b- check 
+ 3. For each item in list A,how often is it in list B 
+ 4. Calculate a score for each item in list A
+
+  */
