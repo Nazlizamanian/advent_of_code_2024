@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "1.9.25"
     application
 }
 
@@ -27,3 +27,5 @@ tasks.test {
 kotlin {
     jvmToolchain(21)
 }
+
+
